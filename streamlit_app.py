@@ -28,6 +28,21 @@ chart_data = pd.DataFrame(
 st.line_chart(chart_data)
 
 
+'Example how a process bar looks like: Starting a long computation...'
+
+# Add a placeholder
+latest_iteration = st.empty()
+bar = st.progress(0)
+
+for i in range(100):
+  # Update the progress bar with each iteration.
+  latest_iteration.text(f'Iteration {i+1}')
+  bar.progress(i + 1)
+  time.sleep(0.1)
+
+'...and now we\'re done!'
+
+
 map_data = pd.DataFrame(
     np.random.randn(1000, 2) / [150, 50] + [48.39, 9.98],
     columns=['lat', 'lon'])
@@ -66,17 +81,5 @@ expander.write("Here you could put in some really, really long explanations...")
 
 
 
-'Starting a long computation...'
 
-# Add a placeholder
-latest_iteration = st.empty()
-bar = st.progress(0)
-
-for i in range(100):
-  # Update the progress bar with each iteration.
-  latest_iteration.text(f'Iteration {i+1}')
-  bar.progress(i + 1)
-  time.sleep(0.1)
-
-'...and now we\'re done!'
 
