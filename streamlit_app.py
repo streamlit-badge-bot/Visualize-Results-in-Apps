@@ -58,7 +58,6 @@ if st.checkbox('Show dataframe'):
     st.line_chart(chart_data)
     
     
-    
 df = pd.DataFrame({
   'first column': [1, 2, 3, 4],
   'second column': [10, 20, 30, 40]
